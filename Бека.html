@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Найден!</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #hack-text {
+      font-size: 24px;
+      white-space: pre-wrap;
+    }
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+        .hack-image {
+      max-width: 300px; 
+      height: auto;
+      border: 2px solid lime; 
+      margin: 20px auto; 
+    }
+  </style>
+</head>
+<body>
+  <h1>ВНИМАНИЕ: Найден ГЕЙ!</h1>
+  <img src="https://i.pinimg.com/736x/4d/fc/b6/4dfcb6ed37cdb2120fd83b88095c0d10.jpg" class="hack-image">
+  <div id="hack-text"></div>
+  <audio id="type-sound" src="бе.mp3" preload="auto"></audio>
+  <script>
+    const messages = [
+      "Подключение к устройству [Iphone-16]... Успешно!",
+      "Сканирование данных... 100% завершено!",
+      "Обнаружено: [Бека гей] любит [большие члены]!",
+      "Сосал? 😎",
+      "Не волнуйся никто не узнаеть что ты гей."
+    ];
+    let i = 0;
+    const textElement = document.getElementById('hack-text');
+    const audio = document.getElementById('type-sound');
+    function typeMessage() {
+      if (i < messages.length) {
+        textElement.innerHTML += messages[i] + '\n';
+        audio.play().catch(() => console.log('Audio play failed')); // Обработка ошибок воспроизведения
+        i++;
+        setTimeout(typeMessage, 1500); // Задержка между сообщениями
+      } else {
+        textElement.innerHTML += '<span class="blink">_</span>';
+      }
+    }
+    typeMessage();
+  </script>
+</body>
+</html>
